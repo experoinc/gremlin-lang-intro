@@ -8,6 +8,7 @@ To get to a Gremlin Console prompt as quickly as possible:
 2. Start a container from the image: `docker run -it gremlin-lang-intro`
 
 When started, the container will: 
+
 1. Start the Gremlin Server
 2. Load one or more data sets
 3. Display the Gremlin Server log
@@ -118,7 +119,8 @@ gremlin>
 Actually, nobody has yet asked any questions, but I thought that they might wonder about these.
 
 #### Why did you do it this way?
-I was giving a Introduction to Gremlin training and wanted the class to hit the ground running.  I didn't want them to mess with data modeling or data loading. They just needed a Gremlin Console into which they could type some traversals. So my main requirements were: 
+I was giving a Introduction to Gremlin training and wanted the class to hit the ground running.  I didn't want them to mess with data modeling or data loading. They just needed a Gremlin Console into which they could type some traversals. So my main requirements were:
+ 
 1. Have a Gremlin Console command line interface.
 2. Have a data set (or sets) already loaded.
 3. Any mutations to a graph must be persisted between commands (default Jupyter + Gremlin Console configurations can't do this).
@@ -134,7 +136,8 @@ There were some updates in TinkerPop 3.3 to the Gremlin Server init script which
 #### How can I change the data sets that are loaded?
 The quick answer is that there the `GREMLIN_YAML` environment variable is set by the Dockerfile. It includes two options, one of which is commented out. 
 
-But more likely you are wanting to add your own data set. Let's say you have "League data" for whatever type of league may interest you, and that is already in a TinkerPop-enabled graph engine. Export that using [Gremlin's IO](http://tinkerpop.apache.org/docs/current/reference/#_gremlin_i_o). Then: 
+But more likely you are wanting to add your own data set. Let's say you have "League data" for whatever type of league may interest you, and that is already in a TinkerPop-enabled graph engine. Export that using [Gremlin's IO](http://tinkerpop.apache.org/docs/current/reference/#_gremlin_i_o). Then:
+ 
 1. Add your `league.data` file to the folder with the Dockerfile
 2. Create a Groovy script in the folder with the Dockerfile, like `generate-citations.groovy`, which we will call `generate-league.groovy` and set it to read your `league.data` file like in the example.
 3. Create a YAML file  in the folder with the Dockerfile like `gremlin-server-citations.yaml`, which we will call `gremlin-server-league.yaml`. In the `scriptEngines.gremlin-groovy.scripts` set the list to include your new script file.  
