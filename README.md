@@ -89,11 +89,13 @@ Server started 23.
 [INFO] OpLoader - Adding the traversal OpProcessor.
 [INFO] TraversalOpProcessor - Initialized cache for TraversalOpProcessor with size 1000 and expiration time of 600000 ms
 [INFO] GremlinServer - Executing start up LifeCycleHook
-[INFO] Logger$info - Loading the Classic data set into Graph: classic, use TraversalSource: gclassic
-[INFO] Logger$info - Loading the Modern data set into Graph: modern, use TraversalSource: gmodern
-[INFO] Logger$info - Loading The Crew data set into Graph: crew, use TraversalSource: gcrew
-[INFO] Logger$info - Loading Grateful Dead data set into Graph: grateful, use TraversalSource: ggrateful
-[INFO] Logger$info - Loading Citations data set into Graph: graph from data/citations.kryo, use TraversalSource: g
+[INFO] Logger$info - Loading the Classic data set into Graph: [classic]. Use TraversalSource: [gclassic]
+[INFO] Logger$info - Loading the Modern data set into Graph: [modern]. Use TraversalSource: [gmodern]
+[INFO] Logger$info - Loading The Crew data set into Graph: [crew]. Use TraversalSource: [gcrew]
+[INFO] Logger$info - Loading Grateful Dead data set into Graph: [grateful] from data/grateful-dead.kryo. Use TraversalSource: [ggrateful]
+[INFO] Logger$info - Loading Citations data set into Graph: [graph] from data/citations.kryo, use TraversalSource: [g]
+[INFO] Logger$info -   Adding index on property [name] in Graph: [graph]
+[INFO] Logger$info -   Adding index on property [title] in Graph: [graph]
 [INFO] AbstractChannelizer - Configured application/vnd.gremlin-v1.0+gryo with org.apache.tinkerpop.gremlin.driver.ser.GryoMessageSerializerV1d0
 [INFO] AbstractChannelizer - Configured application/vnd.gremlin-v1.0+gryo-lite with org.apache.tinkerpop.gremlin.driver.ser.GryoLiteMessageSerializerV1d0
 [INFO] AbstractChannelizer - Configured application/vnd.gremlin-v1.0+gryo-stringd with org.apache.tinkerpop.gremlin.driver.ser.GryoMessageSerializerV1d0
@@ -103,7 +105,7 @@ Server started 23.
 [INFO] GremlinServer$1 - Gremlin Server configured with worker thread pool of 1, gremlin pool of 1 and boss thread pool of 1.
 [INFO] GremlinServer$1 - Channel started at port 8182.
 Starting Gremlin Console
-Jan 05, 2017 3:31:57 PM java.util.prefs.FileSystemPreferences$1 run
+
 INFO: Created user preferences directory.
 
          \,,,/

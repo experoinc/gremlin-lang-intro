@@ -5,19 +5,23 @@ def globals = [:]
 // note that the name of the key in the "global" map is unimportant.
 globals << [hook : [
         onStartUp: { ctx ->
-            ctx.logger.info("Loading the Classic data set into Graph: classic, use TraversalSource: gclassic")
+            ctx.logger.info("Loading the Classic data set into Graph: [classic]. Use TraversalSource: [gclassic]")
             TinkerFactory.generateClassic(classic)
 
-            ctx.logger.info("Loading the Modern data set into Graph: modern, use TraversalSource: gmodern")
+            ctx.logger.info("Loading the Modern data set into Graph: [modern]. Use TraversalSource: [gmodern]")
             TinkerFactory.generateModern(modern)
 
-            ctx.logger.info("Loading The Crew data set into Graph: crew, use TraversalSource: gcrew")
+            ctx.logger.info("Loading The Crew data set into Graph: [crew]. Use TraversalSource: [gcrew]")
             TinkerFactory.generateTheCrew(crew)
 
-            ctx.logger.info("Loading Grateful Dead data set into Graph: grateful, use TraversalSource: ggrateful")
+            ctx.logger.info("Loading Grateful Dead data set into Graph: [grateful] from data/grateful-dead.kryo. Use TraversalSource: [ggrateful]")
             grateful.io(gryo()).readGraph('data/grateful-dead.kryo')
 
-            ctx.logger.info("Loading Citations data set into Graph: graph from data/citations.kryo, use TraversalSource: g")
+            ctx.logger.info("Loading Citations data set into Graph: [graph] from data/citations.kryo, use TraversalSource: [g]")
+            ctx.logger.info("  Adding index on property [name] in Graph [graph]")
+            graph.createIndex("name",Vertex.class)
+            ctx.logger.info("  Adding index on property [title] in Graph [graph]")
+            graph.createIndex("title", Vertex.class)
             graph.io(GryoIo.build()).readGraph('data/citations.kryo')
 
             allowSetOfIdManager = { graph, idManagerFieldName ->
