@@ -69,9 +69,5 @@ COPY start.ipynb /opt/apache-tinkerpop-gremlin-console-3.3.0-SNAPSHOT
 # Set starting directory and start the start.sh script
 # See the FAQ section in the README.md for why I use a start script
 WORKDIR /opt/apache-tinkerpop-gremlin-console-3.3.0-SNAPSHOT
-# ENTRYPOINT /bin/bash ./start.sh
 
-#ENTRYPOINT [ "/usr/bin/tini", "--" ]
-# CMD [ "/bin/bash" ]
-# CMD ["/bin/sh", "-c", "jupyter notebook --port=8888 --ip=0.0.0.0"]
 ENTRYPOINT /bin/bash ./start.sh
