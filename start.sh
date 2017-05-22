@@ -5,5 +5,6 @@ sleep 5
 cat /opt/apache-tinkerpop-gremlin-server-3.3.0-SNAPSHOT/logs/gremlin.log
 sleep 0.5
 
-echo "Starting Gremlin Console"
-bin/gremlin.sh -i conf/init.groovy
+#echo "Starting Gremlin Console"
+#bin/gremlin.sh -i conf/init.groovy
+jupyter notebook --no-browser --ip 0.0.0.0 start.ipynb

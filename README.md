@@ -2,12 +2,12 @@
 Docker image for a lightweight Gremlin Server with locally connected Gremlin Console
 
 ## Quick Start
-Requires [Docker](www.docker.com) to be installed and working. 
+Requires [Docker](//www.docker.com) to be installed and working. 
 
 To get to a Gremlin Console prompt as quickly as possible, from a Docker command prompt:  
 
 1. Build the Docker image: `docker build -t gremlin-lang-intro .`
-2. Start a container from the image: `docker run -it gremlin-lang-intro`
+2. Start a container from the image: `docker run -it -p8888:8888 gremlin-lang-intro`
 
 When started, the container will: 
 
