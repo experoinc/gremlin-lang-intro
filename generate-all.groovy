@@ -17,12 +17,18 @@ globals << [hook : [
             ctx.logger.info("Loading Grateful Dead data set into Graph: [grateful] from data/grateful-dead.kryo. Use TraversalSource: [ggrateful]")
             grateful.io(gryo()).readGraph('data/grateful-dead.kryo')
 
-            ctx.logger.info("Loading Citations data set into Graph: [graph] from data/citations.kryo, use TraversalSource: [g]")
+            ctx.logger.info("Loading Citations data set into Graph: [graph] from data/citations.kryo. Use TraversalSource: [g]")
             ctx.logger.info("  Adding index on property [name] in Graph [graph]")
             graph.createIndex("name",Vertex.class)
             ctx.logger.info("  Adding index on property [title] in Graph [graph]")
             graph.createIndex("title", Vertex.class)
             graph.io(GryoIo.build()).readGraph('data/citations.kryo')
+
+            ctx.logger.info("Loading Air Routes data set into Graph: [airroutes] from data/air-routes.graphml. Use TraversalSource: [gair]")
+            airroutes.io(graphml()).readGraph('data/air-routes.graphml')
+
+            ctx.logger.info("Loading Air Routes Small data set into Graph: [airroutessmall] from data/air-routes-small.graphml. Use TraversalSource: [gairsmall]")
+            airroutessmall.io(graphml()).readGraph('data/air-routes-small.graphml')
 
             allowSetOfIdManager = { graph, idManagerFieldName ->
                 java.lang.reflect.Field idManagerField = graph.class.getDeclaredField(idManagerFieldName)
@@ -40,11 +46,14 @@ globals << [hook : [
                 allowSetOfIdManager(it, "vertexPropertyIdManager")
             }
         }
+
 ] as LifeCycleHook]
 
-// define the default TraversalSource to bind queries to - this one will be named "g".
+// define the default TraversalSource to bind queries to
 globals << [g : graph.traversal()]
 globals << [gclassic : classic.traversal()]
 globals << [gmodern : modern.traversal()]
 globals << [gcrew : crew.traversal()]
 globals << [ggrateful : grateful.traversal()]
+globals << [gair : airroutes.traversal()]
+globals << [gairsmall : airroutessmall.traversal()]
