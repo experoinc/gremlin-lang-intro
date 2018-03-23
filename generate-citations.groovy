@@ -5,7 +5,11 @@ def globals = [:]
 // note that the name of the key in the "global" map is unimportant.
 globals << [hook : [
         onStartUp: { ctx ->
-            ctx.logger.info("Loading Citations data set into Graph: graph from data/citations.kryo, use TraversalSource: g")
+            ctx.logger.info("Loading Citations data set into Graph: [graph] from data/citations.kryo. Use TraversalSource: [g]")
+            ctx.logger.info("  Adding index on property [name] in Graph [graph]")
+            graph.createIndex("name",Vertex.class)
+            ctx.logger.info("  Adding index on property [title] in Graph [graph]")
+            graph.createIndex("title", Vertex.class)
             graph.io(GryoIo.build()).readGraph('data/citations.kryo')
         }
 ] as LifeCycleHook]
