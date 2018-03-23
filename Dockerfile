@@ -60,8 +60,8 @@ COPY gremlin-server-all.yaml $GREMLIN_SERVER_PATH/conf/
 #    gremlin-server-aironly.yaml - only loads the air routes data set
 #    gremlin-server-all.yaml -  loads all 7 data sets (citations, air routes, air routes small, and the four TinkerPop ones)
 # ENV GREMLIN_YAML $GREMLIN_HOME/conf/gremlin-server-citations.yaml
-ENV GREMLIN_YAML $GREMLIN_SERVER_PATH/conf/gremlin-server-aironly.yaml
-# ENV GREMLIN_YAML $GREMLIN_SERVER_PATH/conf/gremlin-server-all.yaml
+# ENV GREMLIN_YAML $GREMLIN_SERVER_PATH/conf/gremlin-server-aironly.yaml
+ENV GREMLIN_YAML $GREMLIN_SERVER_PATH/conf/gremlin-server-all.yaml
 
 # set gremlin-console init script start in console
 COPY init.groovy $GREMLIN_CONSOLE_PATH/conf/
