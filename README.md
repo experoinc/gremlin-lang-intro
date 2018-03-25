@@ -4,10 +4,16 @@ Docker image for a lightweight Gremlin Server with locally connected Gremlin Con
 ## Quick Start
 Requires [Docker](www.docker.com) to be installed and working. 
 
+Make sure that the APACHE_DOWNLOAD_URL value is set to a viable Apache mirror for your location
+
 To get to a Gremlin Console prompt as quickly as possible, from a Docker command prompt:  
 
 1. Build the Docker image: `docker build -t gremlin-lang-intro .`
 2. Start a container from the image: `docker run -it gremlin-lang-intro`
+
+Note that the container contains all of the Gremlin Server YAML files included with the Apache TinkerPop distribution, as well as the ones included in the repository. Any of these can be chosen when the container is run by specifying the `GREMLIN_YAML` environment variable. For example, to start with just the Air Routes data set, run with the following: 
+
+`docker run -e "GREMLIN_YAML=$GREMLIN_SERVER_PATH/conf/gremlin-server-aironly.yaml" -it gremlin-lang-intro ` 
 
 When started, the container will: 
 

@@ -10,8 +10,8 @@ ENV GREMLIN_SERVER_PATH /opt/apache-tinkerpop-gremlin-server-$TINKERPOP_VERSION
 ENV GREMLIN_CONSOLE_PATH /opt/apache-tinkerpop-gremlin-console-$TINKERPOP_VERSION
 
 # Download TinkerPop binaries
-ADD $APACHE_DOWNLOAD_URL/tinkerpop/$TINKERPOP_VERSION/apache-tinkerpop-gremlin-console-$TINKERPOP_VERSION-bin.zip /home/
-ADD $APACHE_DOWNLOAD_URL/tinkerpop/$TINKERPOP_VERSION/apache-tinkerpop-gremlin-server-$TINKERPOP_VERSION-bin.zip /home/
+ADD $APACHE_DOWNLOAD_URL/apache/tinkerpop/$TINKERPOP_VERSION/apache-tinkerpop-gremlin-console-$TINKERPOP_VERSION-bin.zip /home/
+ADD $APACHE_DOWNLOAD_URL/apache/tinkerpop/$TINKERPOP_VERSION/apache-tinkerpop-gremlin-server-$TINKERPOP_VERSION-bin.zip /home/
 
 # Alternatively, Apache TinkerPop zip files can be downloaded to the local directory
 # COPY apache-tinkerpop-gremlin-console-$TINKERPOP_VERSION-bin.zip /home/
@@ -59,7 +59,7 @@ COPY gremlin-server-all.yaml $GREMLIN_SERVER_PATH/conf/
 #    gremlin-server-citations.yaml - only loads the citations data set
 #    gremlin-server-aironly.yaml - only loads the air routes data set
 #    gremlin-server-all.yaml -  loads all 7 data sets (citations, air routes, air routes small, and the four TinkerPop ones)
-# ENV GREMLIN_YAML $GREMLIN_HOME/conf/gremlin-server-citations.yaml
+# ENV GREMLIN_YAML $GREMLIN_SERVER_PATH/conf/gremlin-server-citations.yaml
 # ENV GREMLIN_YAML $GREMLIN_SERVER_PATH/conf/gremlin-server-aironly.yaml
 ENV GREMLIN_YAML $GREMLIN_SERVER_PATH/conf/gremlin-server-all.yaml
 
