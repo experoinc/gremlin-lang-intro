@@ -4,14 +4,14 @@ MAINTAINER Josh Perryman <josh@experoinc.com>
 LABEL Description="TinkerPop Gremlin Server and Gremlin Console"
 
 # This Dockerfile only supports Apache TinkerPop 3.3.0 or higher
-ENV APACHE_DOWNLOAD_URL http://mirrors.ibiblio.org
+ENV APACHE_DOWNLOAD_URL https://archive.apache.org
 ENV TINKERPOP_VERSION 3.3.1
 ENV GREMLIN_SERVER_PATH /opt/apache-tinkerpop-gremlin-server-$TINKERPOP_VERSION
 ENV GREMLIN_CONSOLE_PATH /opt/apache-tinkerpop-gremlin-console-$TINKERPOP_VERSION
 
 # Download TinkerPop binaries
-ADD $APACHE_DOWNLOAD_URL/apache/tinkerpop/$TINKERPOP_VERSION/apache-tinkerpop-gremlin-console-$TINKERPOP_VERSION-bin.zip /home/
-ADD $APACHE_DOWNLOAD_URL/apache/tinkerpop/$TINKERPOP_VERSION/apache-tinkerpop-gremlin-server-$TINKERPOP_VERSION-bin.zip /home/
+ADD $APACHE_DOWNLOAD_URL/dist/tinkerpop/$TINKERPOP_VERSION/apache-tinkerpop-gremlin-console-$TINKERPOP_VERSION-bin.zip /home/
+ADD $APACHE_DOWNLOAD_URL/dist/tinkerpop/$TINKERPOP_VERSION/apache-tinkerpop-gremlin-server-$TINKERPOP_VERSION-bin.zip /home/
 
 # Alternatively, Apache TinkerPop zip files can be downloaded to the local directory
 # COPY apache-tinkerpop-gremlin-console-$TINKERPOP_VERSION-bin.zip /home/
